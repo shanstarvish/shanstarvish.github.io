@@ -87,20 +87,13 @@ def main(user_input):
 
 
 def get_item(item):
-    # figure out how to get user_input for collecting chicken
-    # add to list
-    global current_room
-    item = current_room
-
-    if 'item' in item:
-        print(item['item'])
-        #print('You have found {}!'.format(chick))
-        #chick.append(chicken_army)
+    if item == current_room:
+        item = current_room['item']
+        chicken_army.append(item)
+        print(item)
         print(chicken_army)
-        #return chicken_army
-    else:
-        print('No item here')
-        return item
+
+
 
 
 # Beginning of Code
