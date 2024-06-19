@@ -89,9 +89,16 @@ def main(user_input):
 def get_item(item):
     if item == current_room:
         item = current_room['item']
-        chicken_army.append(item)
-        print(item)
-        print(chicken_army)
+        user_input = input('Would you like to add this chicken to the Army? Choose Yes or No')
+        if user_input == 'Yes':
+            chicken_army.append(item)
+            print(item)
+            print(chicken_army)
+            if item == 'Villain Reynard the Fox':
+                print('You have found the villain! Run away!!')
+                # Write function for ending game!
+    else:
+        print('No item')
 
 
 
