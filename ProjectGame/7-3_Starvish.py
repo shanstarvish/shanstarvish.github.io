@@ -76,6 +76,8 @@ def main(user_input):
                 current_room = rooms[current_room[user_input]]
                 print('You are currently in: {}'.format(current_room['name']))
                 get_item(current_room)
+                print('Current Recruits: ',chicken_army)
+
 
             else:
                 # Move is not possible, bad move
@@ -89,8 +91,8 @@ def main(user_input):
 
 
 def get_item(item):
-    i = -1
-    while i < 0:
+    i = 0
+    while i <= 0:
         if item == current_room:
             item = current_room['item']
             if item == 'No item':
@@ -98,10 +100,15 @@ def get_item(item):
                 break
         user_input = input('Would you like to take this chicken?')
         if user_input == 'Yes':
-            chicken_army.append(item)
-            print(item)
-            print(chicken_army)
-            i = i + 1
+            if current_room['item'] in chicken_army:
+                chicken_army.remove(item)
+            else:
+                chicken_army.append(item)
+                print(item)
+                i = i + 1
+
+
+
 
 
 # Beginning of Code
