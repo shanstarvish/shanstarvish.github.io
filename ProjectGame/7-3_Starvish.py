@@ -76,7 +76,6 @@ def main(user_input):
                 current_room = rooms[current_room[user_input]]
                 print('You are currently in: {}'.format(current_room['name']))
                 get_item(current_room)
-                print('Current Recruits: ',chicken_army)
 
 
             else:
@@ -93,28 +92,39 @@ def main(user_input):
 def get_item(item):
     i = 0
     while i <= 0:
+        i = i + 1
         if item == current_room:
             item = current_room['item']
             if item == 'No item':
                 print('No chicken here, try again')
                 break
-        user_input = input('Would you like to take this chicken?')
+        print('You have found a chicken!\n')
+        user_input = input('Would you like to take this chicken?: ').capitalize()
         if user_input == 'Yes':
-            if current_room['item'] in chicken_army:
-                chicken_army.remove(item)
-            else:
+            if current_room['item'] not in chicken_army:
                 chicken_army.append(item)
-                print(item)
-                i = i + 1
+                final_list = set(chicken_army)
+                print(final_list)
 
 
 
+def fight_scene():
+    
+
+
+    inventory_count = len(chicken_army)
+    if inventory_count >= 6:
+        print('You are ready to take on Reynard the Fox!')
+    else:
+        print('Continue recruiting and searching chickens!')
 
 
 # Beginning of Code
 directions = ['North', 'South', 'East', 'West']  # list of available commands / directions
 current_room = rooms['Coop']  # Starting location for General Talon / player
 chicken_army = []
+chickens = ['Boom-Boom Beak','Col. Plume', 'Capt. Cluck', 'Scout Wingtip', 'Private Peck']
 
 instructions()
 main(current_room)
+
