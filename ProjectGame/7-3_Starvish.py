@@ -1,3 +1,5 @@
+import random
+
 # Text-based Game using dictionaries for organization
 
 # Room dictionary
@@ -78,6 +80,7 @@ def main(user_input):
                 get_item(current_room)
 
 
+
             else:
                 # Move is not possible, bad move
                 print('There appears to be no chickens in that direction. Go another way')
@@ -87,6 +90,22 @@ def main(user_input):
             current_room['name'] = 'Exit'
             break
     return user_input
+
+
+def fight():
+    user_input = input('Are you ready for this battle? Say Yes or No\n').capitalize()
+    if user_input == 'Yes':
+        user_input = input('Type Fight to start!\n').capitalize()
+        if user_input == 'Fight':
+            i = random.randrange(-1, 2)
+            if i >= 0:
+                print('The chickens army has prevailed! Reynard the fox is no more!\n', 'YOU HAVE WON!')
+            elif i <= 0:
+                print('You have lost, despite your bravery and superior numbers. Good luck next time')
+        else:
+            print('The world has no room for cowards', '\n')
+    else:
+        print('The world has no room for cowards', '\n')
 
 
 def get_item(item):
@@ -104,27 +123,21 @@ def get_item(item):
             if current_room['item'] not in chicken_army:
                 chicken_army.append(item)
                 final_list = set(chicken_army)
-                print(final_list)
-
-
-
-def fight_scene():
-    
-
-
-    inventory_count = len(chicken_army)
-    if inventory_count >= 6:
-        print('You are ready to take on Reynard the Fox!')
-    else:
-        print('Continue recruiting and searching chickens!')
+                print(final_list, '/n')
+                chicken_count = len(final_list)
+                if chicken_count >= 6:
+                    print('You are ready to take on Reynard the Fox!')
+                    fight()
+                else:
+                    print('Continue recruiting and searching chickens!')
 
 
 # Beginning of Code
 directions = ['North', 'South', 'East', 'West']  # list of available commands / directions
 current_room = rooms['Coop']  # Starting location for General Talon / player
 chicken_army = []
-chickens = ['Boom-Boom Beak','Col. Plume', 'Capt. Cluck', 'Scout Wingtip', 'Private Peck']
 
 instructions()
 main(current_room)
+
 
