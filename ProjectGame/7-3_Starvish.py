@@ -6,6 +6,7 @@ rooms = {'Coop': {'name': 'Coop',
                   'West': 'Playhouse',
                   'East': 'Greenhouse',
                   'North': 'Garden',
+                  'item': 'No item'
                   },
          'Barn': {'name': 'Barn',
                   'South': 'Greenhouse',
@@ -26,7 +27,8 @@ rooms = {'Coop': {'name': 'Coop',
                       'item': 'Villain Reynard the Fox'},
          'The Shed': {'name': 'The Shed',
                       'North': 'Coop',
-                      'East': 'Under the Tractor'},
+                      'East': 'Under the Tractor',
+                      'item': 'No item'},
          'Greenhouse': {'name': 'Greenhouse',
                         'North': 'Barn',
                         'West': 'Coop',
@@ -87,20 +89,19 @@ def main(user_input):
 
 
 def get_item(item):
-    if item == current_room:
-        item = current_room['item']
-        user_input = input('Would you like to add this chicken to the Army? Choose Yes or No')
+    i = -1
+    while i < 0:
+        if item == current_room:
+            item = current_room['item']
+            if item == 'No item':
+                print('No chicken here, try again')
+                break
+        user_input = input('Would you like to take this chicken?')
         if user_input == 'Yes':
             chicken_army.append(item)
             print(item)
             print(chicken_army)
-            if item == 'Villain Reynard the Fox':
-                print('You have found the villain! Run away!!')
-                # Write function for ending game!
-    else:
-        print('No item')
-
-
+            i = i + 1
 
 
 # Beginning of Code
