@@ -309,10 +309,11 @@ li:hover {
 
 .cta {
     width: calc(min(76.5rem, 78%));
-    color:#FF9966;
+    color: #48463f;
     font-family: Miriam Libre;
    margin-left: 100px;
     text-align: right;
+    font-size: 1rem;
 }
 
 .a_icon {
@@ -644,9 +645,15 @@ h3 {
 }
 
 /* Work section */
+.woods {
+    margin: auto;
+    max-width: 900px;
+    padding: 20px;
+
+}
 .bear {
     display: flex;
-    gap: 15px;
+    gap: 45px;
 
 }
 .pebble {
@@ -666,7 +673,7 @@ h3 {
 }
 
 .button3:hover {
-    background-color: #fdfbee;
-   color: #48463f;
-    border: 5px solid #FF9966;
+    background-color: #8ed4b9;
+    
+    
 }
