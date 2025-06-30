@@ -27,17 +27,24 @@
 
 /* Animation Styling - for welcome */
 
-
-
-
-@keyframes write {
-    from {
-        stroke-dashoffset: 4000; /* Path hidden */
-    }
-    to {
-        stroke-dashoffset: 0; /* Path fully drawn */
-    }
+.typing {
+    font-size: 3rem;
+  width: 50ch; /* Number of characters */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid orange;
+  animation: typing 2.5s steps(22) forwards, blink 0.7s step-end infinite;
 }
+
+@keyframes typing {
+  from { width: 0}
+  to { width: 20ch }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
 
 
   
@@ -160,7 +167,7 @@ a:hover { color: #F64a28;
 .title {
    
     width: 50rem;
-    color: #F64a28;
+    color: #48463f;
     font-family: Miriam Libre;
     font-size: 40px;
    
@@ -581,7 +588,7 @@ section {
     overflow: hidden;
 }
 
-h2 {
+h3 {
     margin: 0;
     padding: 15px;
     cursor: pointer;
@@ -591,7 +598,7 @@ h2 {
     font-family: JetBrains Mono;
 }
 
-h2:hover {
+h3:hover {
     background-color: #8ed4b9;
 }
 
